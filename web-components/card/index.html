@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card component</title>
+    <link rel="stylesheet" href="../../css/guide.css">
+</head>
+<body>
+    <h1>My web component Colors Card</h1>
+
+
+    <div class="guide-color">
+        <ul class="bg-primary-color font-contrast-color">
+            <li><hr></li>
+            <li><b>Color --primary-color</b></li>
+            <li>--primary-color: #c9ab81</li>
+            <li>--primary-complement-color: #819fc9</li>
+            <li>--primary-dark-color: #7c5e35</li>
+            <li>--primary-darkest-color: #352817</li>
+            <li>--primary-light-color: #f7f2ec</li>
+            <li>--primary-lightest-color: white</li>
+        </ul>
+    </div>
+
+    <template id="colors-card">
+        <style>
+            .guide-color {
+                margin: 1rem;
+            }
+            .guide-color ul {
+                padding: 10rem 1rem 1rem 1rem;
+                border-radius: 0.5rem;
+                height: 19rem;
+            }
+
+            .guide-color li {
+                padding-top: 0.5rem;
+            }
+
+            .bg-primary-color { background-color: var(--primary-color) }
+            .bg-secondary-color { background-color: var(--secondary-color) }
+            .bg-neutral-color { background-color: var(--neutral-color); }
+            .bg-warning-color { background-color: var(--warning-color); }
+            .bg-info-color { background-color: var(--info-color); }
+            .bg-text-color { background-color: var(--text-color); }
+
+            .font-contrast-color { color: white; }
+        </style>
+
+        <div class="guide-color">
+            <slot name="card-template">Card template</slot>
+            <ul class="bg-primary-color font-contrast-color">
+                <li><hr></li>
+                <li><b>Color --primary-color</b></li>
+                <li>--primary-color: #c9ab81</li>
+                <li>--primary-complement-color: #819fc9</li>
+                <li>--primary-dark-color: #7c5e35</li>
+                <li>--primary-darkest-color: #352817</li>
+                <li>--primary-light-color: #f7f2ec</li>
+                <li>--primary-lightest-color: white</li>
+            </ul>
+        </div>
+    </template>
+
+    <script>
+        const colorsCardTemplate = document.getElementById("colors-card")
+        document.body.appendChild(colorsCardTemplate.content.cloneNode(true))
+        document.body.appendChild(colorsCardTemplate.content.cloneNode(true))
+
+    </script>
+
+    <colors-card></colors-card>
+</body>
+</html>
