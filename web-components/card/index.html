@@ -4,27 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card component</title>
+    <link rel="stylesheet" href="../../css/first.css">
     <link rel="stylesheet" href="../../css/guide.css">
+
 </head>
 <body>
     <h1>My web component Colors Card</h1>
 
-
-    <div class="guide-color">
-        <ul class="bg-primary-color font-contrast-color">
-            <li><hr></li>
-            <li><b>Color --primary-color</b></li>
-            <li>--primary-color: #c9ab81</li>
-            <li>--primary-complement-color: #819fc9</li>
-            <li>--primary-dark-color: #7c5e35</li>
-            <li>--primary-darkest-color: #352817</li>
-            <li>--primary-light-color: #f7f2ec</li>
-            <li>--primary-lightest-color: white</li>
-        </ul>
-    </div>
-
     <template id="colors-card">
         <style>
+            ul {
+                list-style: none;
+            }
             .guide-color {
                 margin: 1rem;
             }
@@ -45,30 +36,80 @@
             .bg-info-color { background-color: var(--info-color); }
             .bg-text-color { background-color: var(--text-color); }
 
-            .font-contrast-color { color: white; }
+        .font-contrast-color { color: white; }
         </style>
-
+        
         <div class="guide-color">
-            <slot name="card-template">Card template</slot>
-            <ul class="bg-secondary-color font-contrast-color">
+            <ul class="bg-primary-color font-contrast-color">
                 <li><hr></li>
-                <li><b>Color --secondary-color</b></li>
-                <li>--secondary-color: #c9ab81</li>
-                <li>--secondary-complement-color: #819fc9</li>
-                <li>--secondary-dark-color: #7c5e35</li>
-                <li>--secondary-darkest-color: #352817</li>
-                <li>--secondary-light-color: #f7f2ec</li>
-                <li>--secondary-lightest-color: white</li>
+                <li><b>Color --primary-color</b></li>
+                <li>--primary-color: #c9ab81</li>
+                <li>--primary-complement-color: #819fc9</li>
+                <li>--primary-dark-color: #7c5e35</li>
+                <li>--primary-darkest-color: #352817</li>
+                <li>--primary-light-color: #f7f2ec</li>
+                <li>--primary-lightest-color: white</li>
             </ul>
-        </div>
+        </div> 
     </template>
 
+    <div id="shadow-host"></div>
+
+    
+    <div class="wrapper">
+
+        <colors-card color-class="secondary">
+            <span slot="primary-color">#59335c</span>
+            <span slot="complement-color">#365c33</span>
+            <span slot="dark-color">black</span>
+            <span slot="darkest-color">black</span>
+            <span slot="light-color">#ae75b3</span>
+            <span slot="lightest-color">#d5b7d7</span>
+        </colors-card>
+        <colors-card color-class="neutral">
+            <span slot="primary-color">#333333</span>
+            <span slot="complement-color">#333333</span>
+            <span slot="dark-color">black</span>
+            <span slot="darkest-color">black</span>
+            <span slot="light-color">gray</span>
+            <span slot="lightest-color">#b3b3b3</span>
+        </colors-card>
+        <colors-card color-class="warning">
+            <span slot="primary-color">#cd0707</span>
+            <span slot="complement-color">#07cdcd</span>
+            <span slot="dark-color">#390202</span>
+            <span slot="darkest-color">black</span>
+            <span slot="light-color">#fa7373</span>
+            <span slot="lightest-color">#fed5d5</span>
+        </colors-card>
+        <colors-card color-class="info">
+            <span slot="primary-color">#f0ad4e</span>
+            <span slot="complement-color">#4e91f0</span>
+            <span slot="dark-color">#985f0d</span>
+            <span slot="darkest-color">#3a2405</span>
+            <span slot="light-color">#fceedb</span>
+            <span slot="lightest-color">white</span>
+        </colors-card>
+        <colors-card color-class="text">
+            <span slot="primary-color">white</span>
+            <span slot="complement-color">white</span>
+            <span slot="dark-color">#b3b3b3</span>
+            <span slot="darkest-color">gray</span>
+            <span slot="light-color">white</span>
+            <span slot="lightest-color">white</span>
+        </colors-card>
+
+    </div>
+    
+    
     <script>
         const colorsCardTemplate = document.getElementById("colors-card")
-        document.body.appendChild(colorsCardTemplate.content.cloneNode(true))
+        const shadowHost = document.getElementById('shadow-host');
+        shadowHost.attachShadow({ mode: 'open' });
+        shadowHost.shadowRoot.appendChild(colorsCardTemplate.content.cloneNode(true));
 
     </script>
+    <script src="./card.js"></script>
 
-    <colors-card></colors-card>
 </body>
 </html>
