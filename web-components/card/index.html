@@ -50,22 +50,21 @@
 
         <div class="guide-color">
             <slot name="card-template">Card template</slot>
-            <ul class="bg-primary-color font-contrast-color">
+            <ul class="bg-secondary-color font-contrast-color">
                 <li><hr></li>
-                <li><b>Color --primary-color</b></li>
-                <li>--primary-color: #c9ab81</li>
-                <li>--primary-complement-color: #819fc9</li>
-                <li>--primary-dark-color: #7c5e35</li>
-                <li>--primary-darkest-color: #352817</li>
-                <li>--primary-light-color: #f7f2ec</li>
-                <li>--primary-lightest-color: white</li>
+                <li><b>Color --secondary-color</b></li>
+                <li>--secondary-color: #c9ab81</li>
+                <li>--secondary-complement-color: #819fc9</li>
+                <li>--secondary-dark-color: #7c5e35</li>
+                <li>--secondary-darkest-color: #352817</li>
+                <li>--secondary-light-color: #f7f2ec</li>
+                <li>--secondary-lightest-color: white</li>
             </ul>
         </div>
     </template>
 
     <script>
         const colorsCardTemplate = document.getElementById("colors-card")
-        document.body.appendChild(colorsCardTemplate.content.cloneNode(true))
         document.body.appendChild(colorsCardTemplate.content.cloneNode(true))
 
     </script>
